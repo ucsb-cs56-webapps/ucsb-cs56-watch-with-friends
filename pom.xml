@@ -1,0 +1,61 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <!-- model version - always 4.0.0 for Maven 2.x POMs -->
+  <modelVersion>4.0.0</modelVersion>
+
+  <!-- project coordinates - values which uniquely identify this project -->
+  <groupId>edu.ucsb.cs56.pconrad.mlab</groupId>
+  <artifactId>mlabdemo</artifactId>
+  <name>mlabdemo</name>
+  <url>https://github.com/pconrad-webapps/simple-java-mlab-demo</url>
+
+  <!-- configure what mvn package produces -->
+  
+  <packaging>jar</packaging>
+  <version>1.0</version>  
+
+  <!-- what version of Java should we use and what encoding for files? -->
+  <properties>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  
+  <!-- what other software does our project depend on (third-party JARs, etc.) -->
+  <dependencies>
+
+    <!-- JUnit unit testing (https://junit.org/) -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
+      <scope>test</scope>
+    </dependency>
+
+  </dependencies>
+
+  <build>
+
+    <plugins>
+
+      <!-- Make jar file executable -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>3.1.0</version>
+        <configuration>
+          <archive>
+            <manifest>
+              <!-- full package name of class with the main you want to run -->
+              <mainClass>edu.ucsb.cs56.pconrad.mlab.mlabdemo.MLabDemo</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+
+    </plugins>
+  </build>
+
+</project>
