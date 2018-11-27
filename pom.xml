@@ -20,12 +20,20 @@
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.mainClass>edu.ucsb.cs56.pconrad.mlab.mlabdemo.MLabDemo</project.mainClass>
   </properties>
 
   
   <!-- what other software does our project depend on (third-party JARs, etc.) -->
   <dependencies>
 
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-core</artifactId>
+      <version>5.1.2.RELEASE</version>
+    </dependency>
+    
     <!-- JUnit unit testing (https://junit.org/) -->
     <dependency>
       <groupId>junit</groupId>
@@ -34,13 +42,27 @@
       <scope>test</scope>
     </dependency>
 
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.2.3</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.4</version>
+      <scope>provided</scope>
+    </dependency>
+    
   </dependencies>
 
   <build>
 
     <plugins>
 
-      <!-- Make jar file executable -->
+      <!-- Make jar file executable (produce with `mvn package`)-->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
@@ -49,12 +71,43 @@
           <archive>
             <manifest>
               <!-- full package name of class with the main you want to run -->
-              <mainClass>edu.ucsb.cs56.pconrad.mlab.mlabdemo.MLabDemo</mainClass>
+              <mainClass>${project.mainClass}</mainClass>
             </manifest>
           </archive>
         </configuration>
       </plugin>
 
+
+      <!-- To enable `mvn exec:java`
+	   https://www.mojohaus.org/exec-maven-plugin/usage.html -->
+
+      <plugin>
+	<groupId>org.codehaus.mojo</groupId>
+	<artifactId>exec-maven-plugin</artifactId>
+	<version>1.6.0</version>
+	<executions>
+	  <execution>
+	    <goals>
+	      <goal>java</goal>
+	    </goals>
+	  </execution>
+	</executions>
+	<configuration>
+	  <mainClass>${project.mainClass}</mainClass>
+	  <arguments>
+	    <argument>argument1</argument>
+	    ...
+	  </arguments>
+	  <systemProperties>
+	    <systemProperty>
+	      <key>myproperty</key>
+	      <value>myvalue</value>
+	    </systemProperty>
+	    ...
+	  </systemProperties>
+	</configuration>
+      </plugin>
+      
     </plugins>
   </build>
 
