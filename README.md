@@ -1,2 +1,8 @@
-# simple-java-mlab-demo
-This demo shows uploading and retrieving data with MongoDB on Mlab in Java (NOT in a webapp)
+# simple-json-jackson-demo
+
+This demo shows how to read JSON data with Jackson
+
+It reads JSON data from /src/main/resources/buildings.json into a
+`List<Building>` instance.
+
+
