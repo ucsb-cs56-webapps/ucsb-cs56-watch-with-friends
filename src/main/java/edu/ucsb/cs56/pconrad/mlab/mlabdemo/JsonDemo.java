@@ -11,6 +11,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import java.lang.invoke.MethodHandles;
+
+
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -26,7 +29,7 @@ import java.nio.file.Path;
 import java.nio.charset.Charset;
 import static java.nio.charset.StandardCharsets.UTF_8; 
 
-public class MLabDemo {
+public class JsonDemo {
 
 	/**
 	   Read a file that is under a Maven project in src/main/java/resources
@@ -42,7 +45,8 @@ public class MLabDemo {
 	   @return contents of the file
 	 */
 	public static byte [] readByteDataFromResourceFile(String filename) throws java.io.IOException {
-		java.io.InputStream in = new MLabDemo().getClass().getResourceAsStream(filename);	
+		java.io.InputStream in = MethodHandles.lookup().lookupClass().getResourceAsStream(filename);
+		// java.io.InputStream in = new JsonDemo().getClass().getResourceAsStream(filename);	
 		byte[] data = StreamUtils.copyToByteArray(in);
 		return data;
 	}
