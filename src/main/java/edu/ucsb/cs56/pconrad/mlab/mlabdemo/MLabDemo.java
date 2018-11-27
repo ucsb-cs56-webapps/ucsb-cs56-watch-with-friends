@@ -27,19 +27,35 @@ import java.nio.charset.Charset;
 import static java.nio.charset.StandardCharsets.UTF_8; 
 
 public class MLabDemo {
-    public static void main(String [] args) throws java.io.IOException, java.net.URISyntaxException {
-	System.out.println("Mlab Demo");
 
-	java.io.InputStream in = new MLabDemo().getClass().getResourceAsStream("/buildings.json");	
-	byte[] jsonData = StreamUtils.copyToByteArray(in);
+	/**
+	   Read a file that is under a Maven project in src/main/java/resources
+	   and return its contents as a <code>byte []</code>.   
+       The filename should be specified as if the directory 
+	   <code>src/main/java/resources</code> were the root of the filesystem.
+	   This code relies on <code>org.springframework.util.StreamUtils</code>
+	   so the <code>pom.xml</code> should include <code>spring-core</code> 
+	   as a dependency.
+
+
+	   @param filename filename, which should start with a <code>"/"</code>
+	   @return contents of the file
+	 */
+	public static byte [] readByteDataFromResourceFile(String filename) throws java.io.IOException {
+		java.io.InputStream in = new MLabDemo().getClass().getResourceAsStream(filename);	
+		byte[] data = StreamUtils.copyToByteArray(in);
+		return data;
+	}
 	
-	//create ObjectMapper instance
-	ObjectMapper objectMapper = new ObjectMapper();
+    public static void main(String [] args) throws java.io.IOException, java.net.URISyntaxException {
+		System.out.println("Mlab Demo");
 
-	//convert json string to object
-        List<BuildingCode> list =
-	    objectMapper.readValue(jsonData, List.class);
+		// read buildings.json into a List<BuildingCode>		
+		byte [] jsonData = readByteDataFromResourceFile("/buildings.json");
+		ObjectMapper om = new ObjectMapper();
+        List<BuildingCode> list = om.readValue(jsonData, new TypeReference<List<BuildingCode>>(){});
 
-	System.out.println(list);
+		System.out.println(list);
+		
     }
 }

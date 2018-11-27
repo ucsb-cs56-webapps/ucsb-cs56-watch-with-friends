@@ -63,6 +63,18 @@
 
     <plugins>
 
+      <plugin>
+	<groupId>org.apache.maven.plugins</groupId>
+	<artifactId>maven-compiler-plugin</artifactId>
+	<version>3.8.0</version>
+	<configuration>
+	  <compilerArgs>
+            <arg>-Xlint:deprecation</arg>
+            <arg>-Xlint:unchecked</arg>
+	  </compilerArgs>
+	</configuration>
+      </plugin>
+      
       <!-- Make jar file executable (produce with `mvn package`)-->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -80,7 +92,10 @@
 
 
       <!-- To enable `mvn exec:java`
-	   https://www.mojohaus.org/exec-maven-plugin/usage.html -->
+	   https://www.mojohaus.org/exec-maven-plugin/usage.html
+	   Note that you must type `mvn compile exec:java` to retrigger compilation;
+	   `mvn exec:java` by default just runs without trying to recompile.
+      -->
 
       <plugin>
 	<groupId>org.codehaus.mojo</groupId>
