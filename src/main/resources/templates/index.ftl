@@ -6,20 +6,23 @@
   img {
       display: block;     
       margin-left: auto;     
-      margin-right: auto;
+      margin-right: auto;deploy
   }
   .center { margin: auto; }
   .button {
       background-color: #4CAF50;
       border: none;     
       color: white;     
-      padding: 24px 64px;     
+      padding: 16px 32px;     
       text-align: center;     
       text-decoration: none;     
-      display: inline-block;     
-      margin: 4px 2px;     
+      display: inline-block;          
       cursor: pointer;
-      font-size: 64px;
+      font-size: 32px;
+      width: 90%;
+      margin: 8px 0px;
+      margin-left: 5%;
+      margin-right: 5%;
   }
   .button1 {background-color: #555555;}
  </style>
@@ -34,13 +37,11 @@
    <p><small><sup>this image is copyrighted</sup></small></p>
    <p>this is an app desgined to watch videos and songs simultaneously with your friends</p>
    <p><big><b>To get started click one of the buttons below</b></big></p>
-   <div class="center" style="width:950px">
-    <div style="float: left;">
-     <button type="button" class="button"> Join Room </button>
-    </div>
-    <div style="float: right;">
-     <button type="button" class="button button1"> Create Room </button>
-    </div>
+   <p><div class="center" style="width:100%">
+     <button type="button" class="button" onclick="location.href='video'"> Join Room </button>
+     <button type="button" class="button button1" onclick="location.href='music'"> Create Room </button>
+    </p>
+    <p><a href="video">test page</a></p>
    </div>
  </body>
 </html>
