@@ -34,6 +34,11 @@ public class HelloController {
         return "video";
     }
 
+    @RequestMapping("/join")
+    public String join() {
+        return "join";
+    }
+
 }
 	
 

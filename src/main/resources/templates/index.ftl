@@ -38,7 +38,7 @@
    <p>this is an app desgined to watch videos and songs simultaneously with your friends</p>
    <p><big><b>To get started click one of the buttons below</b></big></p>
    <p><div class="center" style="width:100%">
-     <button type="button" class="button" onclick="location.href='video'"> Join Room </button>
+     <button type="button" class="button" onclick="location.href='join'"> Join Room </button>
      <button type="button" class="button button1" onclick="location.href='music'"> Create Room </button>
     </p>
     <p><a href="video">test page</a></p>
