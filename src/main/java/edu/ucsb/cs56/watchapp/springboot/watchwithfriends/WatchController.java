@@ -1,9 +1,8 @@
-package edu.ucsb.cs56.pconrad.springboot.watchapp;
+package edu.ucsb.cs56.watchapp.springboot.watchwithfriends;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-//TODO:ADAPT THIS FILE TO WATCHWITHFRIENDS APP
 
 @Controller
 public class WatchController {
