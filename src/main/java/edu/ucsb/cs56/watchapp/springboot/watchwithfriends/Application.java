@@ -44,4 +44,22 @@ public class Application {
 	}
 
 	*/
+	/* -------------- HASH JS FUNCTION ------------------
+	 *
+	 *
+	 *
+
+	 function getHash(str) {
+             var hash = 0;
+             for (var i = 0; i < str.length; i++) {
+                 hash += str.charCodeAt(i);
+             }
+             hashStr = hash.toString(5);
+             return hashStr.substring(0,6);
+         }
+	
+	 *
+	 *
+	 */
+	
 }
