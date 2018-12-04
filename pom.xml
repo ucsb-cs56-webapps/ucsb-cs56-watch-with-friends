@@ -88,7 +88,7 @@
               <jdkVersion>1.8</jdkVersion>
               <!-- Use your own application name -->
               <!-- at Heroku CLI, use heroku apps to list, or use Heroku Dashboard -->
-              <appName>cs56-al-demo</appName>
+              <appName>cs56-f18-watch-with-friends</appName>
               <processTypes>
                   <!-- Tell Heroku how to launch your application -->
                   <!-- You might have to remove the ./ in front   -->
@@ -99,5 +99,4 @@
       
     </plugins>
   </build>
-
 </project>
