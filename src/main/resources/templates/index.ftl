@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html>
  <style>
+  *{
+    
+  }
   p { text-align: center; }
   h1 { text-align: center; }
+  body{
+    background-color: #333333;
+  }
   img {
       display: block;     
       margin-left: auto;     
-      margin-right: auto;deploy
+      margin-right: auto;
   }
   .center { margin: auto; text-align: center;}
   .button {

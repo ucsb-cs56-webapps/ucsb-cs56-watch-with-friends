@@ -4,17 +4,35 @@
    <title>Video</title>
    <#include "head.ftl" />
    <style>
+     *{
+       font-family: Courier New;
+     }
      body{
        background-color: #333333;
      }
+     .center {text-align:center;}
      .button{
        background-color: #555555;
-       border: none;
        color: white;
-       font-size: 5;
+       font-size: 20px;
        padding: 4px 16px;
        margin: 8px 4px;
+       box-sizing: border-box;
+       border: 2px solid #777777;
+       border-radius: 4px;
      }
+     .button1 {
+       background-color: #4CAF50;
+       border: none;
+       color: white;
+       width: 70%;
+       font-size: 20px;
+       padding: 4px 16px;
+       margin: 4px 4px;
+     }
+     .button2 {
+       background-color: #555555;
+     } 
      iframe{
        box-sizing: border-box;
        border: 4px solid #1f4720;
@@ -22,28 +40,32 @@
        height:85vh;
        width: 100vw;
      }
-   
-    .overlay {
-      position: fixed;
-      display: none;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0,0,0,0.5);
-      z-index:2;
-    }
-    .overlay_input{
-      position: fixed;
-      width: 40vw;
-      height: 30vh;
-      top: 25%;     left: 30%;
-      background-color: rgba(192,192,192,0.85);
-      z-index: 3;
-      cursor: pointer;
-      text-align: center;
-      box-sizing: border-box;
-      border: 4px solid grey;
-      border-radius: 10px;
-    }
+     .input_field{
+       width: 70%;
+       border: none;
+       border-radius: 3px;
+     }
+     .overlay {
+       position: fixed;
+       display: none;
+       width: 100%;
+       height: 100%;
+       background-color: rgba(0,0,0,0.5);
+       z-index:2;
+     }
+     .overlay_input{
+       position: fixed;
+       width: 40vw;
+       height: 20vh;
+       top: 40%;     left: 30%;
+       background-color: rgba(192,192,192,0.85);
+       z-index: 3;
+       cursor: pointer;
+       text-align: center;
+       box-sizing: border-box;
+       border: 4px solid grey;
+       border-radius: 10px;
+     } 
     .short_overlay{
       height: 25vh;
     }
@@ -57,10 +79,10 @@
      <div class="centered_text">
        <h1>
          <b>Share Room</b><br>
-         <font size="6" id="session_url">video url</font><br>
+         <font size="4" id="session_url">video url</font><br>
        </h1>
-       <input type="submit" onclick="copy()" value="Copy" class="button2">     
-       <input type="submit" onclick="linkOff()" value="Close" class="button2 button1">
+       <input type="submit" onclick="copy()" value="Copy" class="button1">     
+       <input type="submit" onclick="linkOff()" value="Close" class="button1 button2">
      </div>
      </div>
    </div>
@@ -72,34 +94,34 @@
      <div class="centered_text">
        <h1>
          <b>Add Video</b><br>
-         <font size="4">video url</font><br>
+         <!--<font size="4">video url</font><br>-->
        </h1>
        <form>
-         <input type="text" id="add_field" value="">
+         <input type="text" id="add_field" class="input_field" value="">
        </form>
-       <input type="submit" onclick="submitVid()" value="Add" class="button2">     
-       <input type="submit" onclick="addOff()" value="Cancel" class="button2 button1">
+       <input type="submit" onclick="submitVid()" value="Add" class="button1">     
+       <input type="submit" onclick="addOff()" value="Cancel" class="button1 button2">
      </div>
      </div>
    </div>
 
    <#include "navbar.ftl" />
    <div text-align: center>
-   <iframe id="vidFrame" src="https://cdn.dribbble.com/users/46891/screenshots/973812/color.jpg"> 
+   <iframe id="vidFrame" src="https://i.ibb.co/KW5TFrj/Unavalible.png" class="center"> 
    <p>No Video Avalible</p>
    </iframe>
    </div>
-   <input type="button" onclick="getLink()" value="get link" class=button>
-   <input type="button" onclick="addVid()" value="add video" class=button>
+   <input type="button" onclick="getLink()" value="get link" class="button">
+   <input type="button" onclick="addVid()" value="add video" class="button">
    <!--<input type="button" onclick"" value="get link" class=button>-->
    
-   <font color="white" id="current_vid">Currently Playing: Unavalible</font>
+   <font color="white" size="6" id="current_vid"><B>Currently Playing:</b> Unavalible</font>
 
  </body>
 
  <script>
    function onLoad(){
-     document.getElementById("current_vid").innerHTML = "Currently Playing: K/DA - POP/STARS";
+     document.getElementById("current_vid").innerHTML = "<b>Currently Playing:</b> none";
    }
 
    function getLink(){
