@@ -2,6 +2,11 @@ package edu.ucsb.cs56.watchapp.springboot.watchwithfriends;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.ModelAttribute ;
+import java.util.Map ;
+import java.util.HashMap ;
 
 
 @Controller
@@ -40,9 +45,13 @@ public class WatchController {
         return "join";
     }
 
-    @RequestMapping(value="/room")
-    public String joinRoom(){
-	return "video";
+    @RequestMapping(value="/room/{id}")
+    public @ResponseBody ModelAndView joinRoom(@PathVariable String id @ModelAttribute("wm") WatchModel wm){
+	    Map<String, Object> params = new HashMap<>();
+	    wm.setRoom(id);
+	    params.put("wm",wm);
+	    return new ModelAndView("video",params);
+	
     }
 }
 	
