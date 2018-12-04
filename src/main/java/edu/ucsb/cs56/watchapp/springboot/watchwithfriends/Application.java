@@ -6,7 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Application {
+public class Application implements CommandLineRunner{
 
 	@Autowired
 	private WatchCodeRepository repository;
@@ -15,16 +15,16 @@ public class Application {
 		SpringApplication.run(Application.class, args);
 	}
 
-	
-/*	public void run(String... args) throws Exception {
+	@Override
+	public void run(String... args) throws Exception {
 
 		repository.deleteAll();
 
-		// save a couple of building codes
+		// save links
 		repository.save(new WatchCode("youtube.com/link?=123", "random user", "12313131"));
 		repository.save(new WatchCode("youtube.com/link?=321", "another user", "5556636"));
 
-		// fetch all building codes
+		// fetch all links
 		
 		System.out.println("These are the codes we found in DB");
 		System.out.println("-------------------------------");
