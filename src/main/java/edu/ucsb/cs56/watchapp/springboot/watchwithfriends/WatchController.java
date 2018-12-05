@@ -47,10 +47,12 @@ public class WatchController {
     }
 
     @RequestMapping(value="/room/{id}")
-    public @ResponseBody ModelAndView joinRoom(@PathVariable("id") String id, @ModelAttribute("wm") WatchModel wm){
+    public @ResponseBody ModelAndView joinRoom(@PathVariable("id") Long id, @ModelAttribute("wm") WatchModel wm){
 	    Map<String, Object> params = new HashMap<>();
-	    wm.setRoom(id);
-	    params.put("wm",wm);
+	    wm.setID(""+id);
+	    params.put("roomName", wm.getRoomName());
+        params.put("id", wm.getID());
+        params.put("videoURL", wm.getURL());
 	    return new ModelAndView("video",params);
 	
     }

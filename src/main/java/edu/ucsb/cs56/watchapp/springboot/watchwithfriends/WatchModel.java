@@ -17,12 +17,17 @@ public class WatchModel {
         repository.save(new WatchCode("default", roomName, roomHash));
     }
 
-    public void setRoom(String ID) {
-	this.ID = ID;
+    public String getRoomName() {
+        return "stub";
     }
 
-    @Override
-    public String toString(){
-	    return ID;
+    public void setID(String ID) {
+	  this.ID = ID;
+    }
+    public String getID(){
+       return ID;
+    }
+    public String getURL(){
+       return "https://www.youtube.com/embed/l5zJW-BL648";
     }
 }
