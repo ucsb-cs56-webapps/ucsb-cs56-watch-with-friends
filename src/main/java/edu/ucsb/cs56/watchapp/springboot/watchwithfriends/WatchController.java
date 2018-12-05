@@ -5,8 +5,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.bind.annotation.ModelAttribute ;
-import java.util.Map ;
-import java.util.HashMap ;
 
 
 @Controller
@@ -43,15 +41,6 @@ public class WatchController {
     @RequestMapping("/join")
     public String join() {
         return "join";
-    }
-
-    @RequestMapping(value="/room/{id}")
-    public @ResponseBody ModelAndView joinRoom(@PathVariable String id @ModelAttribute("wm") WatchModel wm){
-	    Map<String, Object> params = new HashMap<>();
-	    wm.setRoom(id);
-	    params.put("wm",wm);
-	    return new ModelAndView("video",params);
-	
     }
 }
 	

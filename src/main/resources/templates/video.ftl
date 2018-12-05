@@ -123,24 +123,19 @@
    function onLoad(){
      document.getElementById("current_vid").innerHTML = "<b>Currently Playing:</b> none";
    }
-
    function getLink(){
      document.getElementById("urlOverlay").style.display = "block";
    }
-
    function linkOff(){
      document.getElementById("urlOverlay").style.display = "none";
    }
-
    function addVid(){ 
      document.getElementById("playlistOverlay").style.display = "block";
      document.getElementById("add_field").value = "";
    }
-
    function addOff(){
      document.getElementById("playlistOverlay").style.display = "none";
    }
-
    function submitVid(){
      var str = document.getElementById("add_field").value;
      if(str != ""){
@@ -151,7 +146,6 @@
 	     document.getElementById("current_vid").innerHTML = mod2;
      }
    }
-
    function copy() {   
      var copyText = document.getElementById("session_url");   
      copyText.select();   

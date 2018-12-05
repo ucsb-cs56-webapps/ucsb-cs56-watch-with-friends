@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
  <head>
+<<<<<<< HEAD
   <style>
    body{
        font-family: Courier New;
@@ -9,14 +10,14 @@
        background-color: #333333;
    }
    </style>
+=======
+>>>>>>> parent of 990c8b1... Merge pull request #9 from ucsb-cs56-f18/UI
    <title>Chat</title>
    <#include "head.ftl" />
  </head>
  <body>
    <#include "navbar.ftl" />
    <h1>This is the Chat page</h1>
-  <p>Terribly sorry this page is currently unavalible<br>
-   This page is reserved for.... idrk the chat should be built as a part of our share page</p>
- 
+  <p>This is where the chat options and more functional features will be.</p>
  </body>
 </html>
