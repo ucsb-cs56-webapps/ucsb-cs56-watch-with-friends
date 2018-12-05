@@ -98,7 +98,7 @@
        <form>
          <input type="text" name="roomName"  id="join_textfield">
        </form>
-       <input type="submit" onclick="location.href='video'" value="Connect" class="button2">     
+       <input type="submit" onclick="joinRoom()" value="Connect" class="button2">     
        <input type="submit" onclick="joinOff()" value="Cancel" class="button2 button1">
      </div>
      </div>
@@ -114,7 +114,7 @@
        <form>
          <input type="text" id="create_textfield">
        </form>
-       <input type="submit" onclick="location.href='video'" value="Connect" class="button2">     
+       <input type="submit" onclick="createRoom()" value="Connect" class="button2">     
        <input type="submit" onclick="createOff()" value="Cancel" class="button2 button1">
      </div>
      </div>
@@ -126,7 +126,7 @@
    <img src="https://www.synaptop.com/wp-content/uploads/2015/01/watch_movie_with_friend_16_6.jpg" alt="random ass image" CSS style="width:95%">
    <p><small><sup>this image is copyrighted</sup></small></p>
    <p>this is an app desgined to watch videos and songs simultaneously with your friends</p>
-   <p><big><b>To get started click one of the buttons below</b></big></p>
+   <p id="message"><big><b>To get started click one of the buttons below</b></big></p>
    <p><div class="center" style="width:100%">
      <button type="button" class="button" onclick="joinClick()"> Join Room </button>
      <button type="button" class="button button1" onclick="createClick()"> Create Room </button>
@@ -147,7 +147,10 @@
       document.getElementById("createOverlay").style.display = "none";
     }
     function joinRoom() {
-      location.href="video";
+      var link = getHash(document.getElementById("join_textfield").value);
+      var newlink ="https://cs56-f18-watch-with-friends.herokuapp.com/room/"+link;
+      //document.getElementById("message").innerHTML = newlink;
+      location.href=newlink;
     }
     function getHash(str) {
       var hash = 0;
@@ -157,7 +160,9 @@
       hashStr = hash.toString(5);
       return hashStr.substring(0,6);
     }
-	
+	function createRoom() {
+        location.href="video";
+    }
   </script>
  </body>
 </html>
