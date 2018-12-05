@@ -1,0 +1,102 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <!-- model version - always 4.0.0 for Maven 2.x POMs -->
+  <modelVersion>4.0.0</modelVersion>
+
+  <!-- project coordinates - values which uniquely identify this project -->
+  <groupId>org.springframework</groupId>
+  <artifactId>gs-spring-boot</artifactId>
+  <version>0.1.0</version>
+  
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.5.RELEASE</version>
+    </parent>
+
+  <!-- configure what mvn package produces -->
+  
+  <properties>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.mainClass>edu.ucsb.cs56.watchapp.springboot.watchapp.Application</project.mainClass>
+  </properties>
+
+  
+  <!-- what other software does our project depend on (third-party JARs, etc.) -->
+  <dependencies>
+  
+ 	<dependency>
+	    <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+	</dependency>
+
+    	<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-freemarker</artifactId>
+        </dependency>
+  
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-core</artifactId>
+      <version>5.1.2.RELEASE</version>
+    </dependency>
+    
+    <!-- JUnit unit testing (https://junit.org/) -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
+      <scope>test</scope>
+    </dependency>
+
+
+    <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.4</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-mongodb -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-mongodb</artifactId>
+      <version>2.1.0.RELEASE</version>	 
+   </dependency>
+
+    
+  </dependencies>
+
+  <build>
+
+    <plugins>
+  
+      <plugin>
+	<groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+      <plugin>
+          <groupId>com.heroku.sdk</groupId>
+          <artifactId>heroku-maven-plugin</artifactId>
+          <version>2.0.3</version>
+          <configuration>
+              <jdkVersion>1.8</jdkVersion>
+              <!-- Use your own application name -->
+              <!-- at Heroku CLI, use heroku apps to list, or use Heroku Dashboard -->
+              <appName>cs56-f18-watch-with-friends</appName>
+              <processTypes>
+                  <!-- Tell Heroku how to launch your application -->
+                  <!-- You might have to remove the ./ in front   -->
+		  <web>java $JAVA_OPTS -jar target/gs-spring-boot-0.1.0.jar --server.port=$PORT</web>
+              </processTypes>
+          </configuration>
+      </plugin>
+      
+    </plugins>
+  </build>
+</project>
