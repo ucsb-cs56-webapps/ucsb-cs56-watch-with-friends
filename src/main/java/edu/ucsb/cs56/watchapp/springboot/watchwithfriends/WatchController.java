@@ -56,6 +56,22 @@ public class WatchController {
 	    return new ModelAndView("video",params);
 	
     }
+
+    @RequestMapping(value="/vid/{id}/{url}")
+    public void setVid (@PathVariable("id") String id, @PathVariable("url") String url, @ModelAttribute("wm") WatchModel wm){
+        wm.setVid(id, url);
+    }
+
+    @RequestMapping(value="/create/{id}")
+    public @ResponseBody ModelAndView createSite (@PathVariable("id") String id, @ModelAttribute("wm") WatchModel wm){
+        wm.create(id);
+        Map<String, Object> params = new HashMap<>();
+        params.put("roomName", "temp name");
+        params.put("id", id);
+        params.put("videoURL", "https://www.youtube.com/embed/EF4jGOpBZT0");
+        return new ModelAndView("video",params);
+    }
+
 }
 	
 
