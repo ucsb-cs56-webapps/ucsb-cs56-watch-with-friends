@@ -80,7 +80,7 @@
      <div class="centered_text">
        <h1>
          <b>Share Room</b><br>
-         <font size="4" id="session_url">https://cs56-f18-watch-with-friends.herokuapp.com/room?room={wm}</font><br>
+         <font size="4" id="session_url">https://cs56-f18-watch-with-friends.herokuapp.com/room?room=${id}</font><br>
        </h1>
        <input type="submit" onclick="copy()" value="Copy" class="button1">     
        <input type="submit" onclick="linkOff()" value="Close" class="button1 button2">
@@ -108,7 +108,7 @@
 
    <#include "navbar.ftl" />
    <div text-align: center>
-   <iframe id="vidFrame" src="https://i.ibb.co/KW5TFrj/Unavalible.png" class="center"> 
+   <iframe id="vidFrame" src="${videoURL}" class="center"> 
    <p>No Video Avalible</p>
    </iframe>
    </div>
@@ -116,13 +116,14 @@
    <input type="button" onclick="addVid()" value="add video" class="button">
    <!--<input type="button" onclick"" value="get link" class=button>-->
    
-   <font color="white" size="6" id="current_vid"><B>Currently Playing:</b> {wm}</font>
+   <font color="white" size="6" id="current_vid"><B>Currently Room:</b> ${roomName}</font>
 
  </body>
 
  <script>
    function onLoad(){
-     document.getElementById("current_vid").innerHTML = "<b>Currently Playing:</b> none";
+     //document.getElementById("videoFrame").innerHTML = "";
+     //https://i.ibb.co/KW5TFrj/Unavalible.png
    }
 
    function getLink(){
