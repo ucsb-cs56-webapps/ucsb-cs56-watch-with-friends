@@ -17,7 +17,7 @@ public class WatchModel {
         repository.save(new WatchCode("default", roomName, roomHash));
     }
 
-    public void setRoom(string ID) {
+    public void setRoom(String ID) {
 	this.ID = ID;
     }
 

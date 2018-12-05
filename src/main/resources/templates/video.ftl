@@ -42,6 +42,7 @@
      }
      .input_field{
        width: 70%;
+       margin: 4px 4px;
        border: none;
        border-radius: 3px;
      }
@@ -56,8 +57,8 @@
      .overlay_input{
        position: fixed;
        width: 40vw;
-       height: 20vh;
-       top: 40%;     left: 30%;
+       height: 26vh;
+       top: 37%;     left: 30%;
        background-color: rgba(192,192,192,0.85);
        z-index: 3;
        cursor: pointer;
@@ -79,7 +80,7 @@
      <div class="centered_text">
        <h1>
          <b>Share Room</b><br>
-         <font size="4" id="session_url">video url</font><br>
+         <font size="4" id="session_url">https://cs56-f18-watch-with-friends.herokuapp.com/room?room={wm}</font><br>
        </h1>
        <input type="submit" onclick="copy()" value="Copy" class="button1">     
        <input type="submit" onclick="linkOff()" value="Close" class="button1 button2">
@@ -115,7 +116,7 @@
    <input type="button" onclick="addVid()" value="add video" class="button">
    <!--<input type="button" onclick"" value="get link" class=button>-->
    
-   <font color="white" size="6" id="current_vid"><B>Currently Playing:</b> Unavalible</font>
+   <font color="white" size="6" id="current_vid"><B>Currently Playing:</b> {wm}</font>
 
  </body>
 
@@ -153,7 +154,7 @@
    }
 
    function copy() {   
-     var copyText = document.getElementById("session_url");   
+     var copyText = document.getElementById("session_url").innerHTMLw;   
      copyText.select();   
      document.execCommand("copy");
    }
