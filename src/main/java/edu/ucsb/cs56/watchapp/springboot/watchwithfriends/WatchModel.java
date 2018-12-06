@@ -2,7 +2,7 @@ package edu.ucsb.cs56.watchapp.springboot.watchwithfriends;
 
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 @Data
 public class WatchModel {
