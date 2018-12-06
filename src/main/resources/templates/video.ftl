@@ -82,7 +82,7 @@
          <b>Share Room</b><br>
          <font size="4" id="session_url">https://cs56-f18-watch-with-friends.herokuapp.com/room/${id}</font><br>
        </h1>
-       <input type="submit" onclick="copy()" value="Copy" class="button1">     
+       <input type="submit" onclick="copyText()" value="Copy" class="button1">     
        <input type="submit" onclick="linkOff()" value="Close" class="button1 button2">
      </div>
      </div>
@@ -164,7 +164,7 @@
        return new Promise(resolve => setTimeout(resolve, ms)); 
    }
 
-   function copy() {   
+   function copyText() {   
      var copyText = document.getElementById("session_url").innerHTMLw;   
      copyText.select();   
      document.execCommand("copy");
