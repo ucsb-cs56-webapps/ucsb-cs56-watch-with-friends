@@ -96,7 +96,7 @@
          <font size="4">Room ID</font><br>
        </h1>
        <form>
-         <input type="text" name="roomName"  id="join_textfield">
+         <input type="text" name="roomName" value="" id="join_textfield">
        </form>
        <input type="submit" onclick="joinRoom()" value="Connect" class="button2">     
        <input type="submit" onclick="joinOff()" value="Cancel" class="button2 button1">
@@ -112,7 +112,7 @@
          <font size="4">Room Name</font><br>
        </h1>
        <form>
-         <input type="text" id="create_textfield">
+         <input type="text" id="create_textfield" value="">
        </form>
        <input type="submit" onclick="createRoom()" value="Connect" class="button2">     
        <input type="submit" onclick="createOff()" value="Cancel" class="button2 button1">
@@ -149,7 +149,6 @@
     function joinRoom() {
       var link = getHash(document.getElementById("join_textfield").value);
       var newlink ="https://cs56-f18-watch-with-friends.herokuapp.com/room/"+link;
-      //document.getElementById("message").innerHTML = newlink;
       location.href=newlink;
     }
     function getHash(str) {
@@ -160,8 +159,13 @@
       hashStr = hash.toString(5);
       return hashStr.substring(0,6);
     }
-	function createRoom() {
-        location.href="video";
+    function createRoom() {
+      var rName = document.getElementById("create_textfield").value;
+      var link = getHash(document.getElementById("create_textfield").value);
+      var newlink ="https://cs56-f18-watch-with-friends.herokuapp.com/room/"+link;
+      var myWindow = window.open("https://cs56-f18-watch-with-friends.herokuapp.com/create/"+ rName + "/" +link);
+      myWindow.close(); 
+      location.href=newlink;
     }
   </script>
  </body>
