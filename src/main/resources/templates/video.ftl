@@ -108,7 +108,7 @@
 
    <#include "navbar.ftl" />
    <div text-align: center>
-   <iframe id="vidFrame" src="${videoURL}" class="center"> 
+   <iframe id="vidFrame" src="https://i.ibb.co/KW5TFrj/Unavalible.png" class="center"> 
    <p>${videoURL}</p>
    </iframe>
    </div>
