@@ -49,9 +49,8 @@ spring.data.mongodb.host=ds<host>.mlab.com
 spring.data.mongodb.password=<userpassword>
 spring.data.mongodb.port=<port>
 spring.data.mongodb.username=<username>
-
 ```
-* NOTE: -- must be added as a collaborator on the heroku app to deploy -- 
+* NOTE: -- must be added as a collaborator on the heroku app to deploy --   
 Afterwards, navigate back the top level directory. The commands to run are:
 
 1) `mvn compile`
