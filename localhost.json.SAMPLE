@@ -1,7 +1,7 @@
 {
- "spring.data.mongodb.database":"add-DB-name",
- "spring.data.mongodb.host":"add-host",
- "spring.data.mongodb.password":"add-user-pw",
- "spring.data.mongodb.port":"add-port",
- "spring.data.mongodb.username":"add-user-name"
+ "spring.data.mongodb.database":"<databasename>",
+ "spring.data.mongodb.host":"ds<host>.mlab.com",
+ "spring.data.mongodb.password":"<userpassword>",
+ "spring.data.mongodb.port":"<port>",
+ "spring.data.mongodb.username":"<username>"
 }
