@@ -1,0 +1,7 @@
+{
+ "spring.data.mongodb.database":"add-DB-name",
+ "spring.data.mongodb.host":"add-host",
+ "spring.data.mongodb.password":"add-user-pw",
+ "spring.data.mongodb.port":"add-port",
+ "spring.data.mongodb.username":"add-user-name"
+}
