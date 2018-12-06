@@ -1,6 +1,6 @@
 # WATCH WITH FRIENDS
 
-A webapp that people watch videos together and chat with friends
+A webapp where people watch videos together and chat with friends
 
 Webapp Url: http://cs56-f18-watch-with-friends.herokuapp.com/
 
@@ -40,7 +40,7 @@ Afterwards, the commands to run are :
 
 Instructions (HEROKUAPP): Clone this repository then navigate to application.properties to update credentials:
 --
-Pathway: ~/src/main/resources/application.properties
+Pathway: `~/src/main/resources/application.properties`
 ```
 server.port = 8080
 server.contextPath = /api
