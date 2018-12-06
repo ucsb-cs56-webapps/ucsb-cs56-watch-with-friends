@@ -154,9 +154,11 @@
 	     document.getElementById("playlistOverlay").style.display = "none";
 	     document.getElementById("current_vid").innerHTML = mod2;
 
-         var url = document.getElementById("roomID").innerHTML;
-
-         window.open("https://cs56-f18-watch-with-friends.herokuapp.com/vid/"+url+"/"+mod2);
+         var hash = document.getElementById("roomID").innerHTML;
+	 var mod3 = mod2.replace("https://www.youtube.com/embed/","");
+	     
+        var myWindow =  window.open("https://cs56-f18-watch-with-friends.herokuapp.com/vid/"+hash+"/"+mod3);
+	myWindow.close();	
      }
    }
 

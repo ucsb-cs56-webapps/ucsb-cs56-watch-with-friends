@@ -15,12 +15,13 @@
  </head>
  <body>
    <#include "navbar.ftl" />
-   <p>Terribly sorry you have been redirected to this page due to an unfortunate error </p>
+   <p>terrible </p>
+
  
  </body>
 	<script>
-
-
-
+		function methodname() {
+			myWindow.close();
+		}
 	</script>
 </html>
