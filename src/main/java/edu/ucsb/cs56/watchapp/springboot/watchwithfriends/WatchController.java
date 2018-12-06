@@ -59,7 +59,7 @@ public class WatchController {
     @RequestMapping(value="/room/{id}")
     public @ResponseBody ModelAndView joinRoom(@PathVariable("id") String id, @ModelAttribute("wm") WatchCode wc){
 	    Map<String, Object> params = new HashMap<>();
-	    repository.save(new WatchCode("https://www.youtube.com/embed/vJR_-O_tLFo", "Test", id));
+	   // repository.save(new WatchCode("https://www.youtube.com/embed/vJR_-O_tLFo", "Test", id));
 	    wc = repository.findByHash(id);
 	    params.put("roomName", wc.getName());
             params.put("id", wc.getHash());
@@ -71,6 +71,7 @@ public class WatchController {
     @RequestMapping(value="/vid/{id}/{url}")
     public String setVid (@PathVariable("id") String id, @PathVariable("url") String url, @ModelAttribute("wm") WatchCode wc){
         wc = repository.findByHash(id);
+//	repository.save(new WatchCode("two","things","here"));
 	wc.setLink("https://www.youtube.com/embed/" + url);
 	repository.save(wc);
 	return "temp";
@@ -80,7 +81,7 @@ public class WatchController {
 
     @RequestMapping(value="/create/{rn}/{id}")
     public @ResponseBody ModelAndView createSite (@PathVariable("id") String id, @PathVariable("rn") String rn, @ModelAttribute("wm") WatchCode wc){
-        repository.save(new WatchCode("none",rn,id));
+        repository.save(new WatchCode("https://i.ibb.co/KW5TFrj/Unavalible.png",rn,id));
 	Map<String, Object> params = new HashMap<>();
         params.put("roomName", rn);
         params.put("id", id);
