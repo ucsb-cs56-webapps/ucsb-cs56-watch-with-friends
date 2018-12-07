@@ -50,14 +50,13 @@ spring.data.mongodb.password=<userpassword>
 spring.data.mongodb.port=<port>
 spring.data.mongodb.username=<username>
 ```
-* NOTE: -- must be added as a collaborator on the heroku app to deploy --   
 Afterwards, navigate back the top level directory. The commands to run are:
 
 1) `mvn compile`
 
 2) `mvn package heroku:deploy`
 
-Optional Heroku Commands (FOR THE DEPLOYMENT ON HEROKU -- must be collaborator):
+Optional Heroku Commands:
 
 1) `heroku config:set MONGOLAB_URI=mongodb://<username>:<userpassword>@ds<host>.mlab.com:<port>/<databasename> --app cs56-f18-watch-with-friends`
 
