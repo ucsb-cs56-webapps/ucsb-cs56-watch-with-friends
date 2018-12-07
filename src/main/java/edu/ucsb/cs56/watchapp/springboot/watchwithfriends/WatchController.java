@@ -58,14 +58,17 @@ public class WatchController {
 
     @RequestMapping(value="/room/{id}")
     public @ResponseBody ModelAndView joinRoom(@PathVariable("id") String id, @ModelAttribute("wm") WatchCode wc){
-	    Map<String, Object> params = new HashMap<>();
-	   // repository.save(new WatchCode("https://www.youtube.com/embed/vJR_-O_tLFo", "Test", id));
-	    wc = repository.findByHash(id);
-	    params.put("roomName", wc.getName());
-            params.put("id", wc.getHash());
-            params.put("videoURL", wc.getLink());
-	    return new ModelAndView("video",params);
-	
+        Map<String, Object> params = new HashMap<>();
+        try{
+           // repository.save(new WatchCode("https://www.youtube.com/embed/vJR_-O_tLFo", "Test", id));
+            wc = repository.findByHash(id);
+            params.put("roomName", wc.getName());
+                params.put("id", wc.getHash());
+                params.put("videoURL", wc.getLink());
+            return new ModelAndView("video",params);
+        }catch (Exception e){
+            return new ModelAndView("noRoom",params);
+        }
     }
 
     @RequestMapping(value="/vid/{id}/{url}")
@@ -80,13 +83,9 @@ public class WatchController {
 
 
     @RequestMapping(value="/create/{rn}/{id}")
-    public @ResponseBody ModelAndView createSite (@PathVariable("id") String id, @PathVariable("rn") String rn, @ModelAttribute("wm") WatchCode wc){
+    public String createSite (@PathVariable("id") String id, @PathVariable("rn") String rn){
         repository.save(new WatchCode("https://i.ibb.co/KW5TFrj/Unavalible.png",rn,id));
-	Map<String, Object> params = new HashMap<>();
-        params.put("roomName", rn);
-        params.put("id", id);
-        params.put("videoURL", "none");
-        return new ModelAndView("video",params);
+        return "temp";
     }
 
 }
