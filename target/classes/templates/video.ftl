@@ -80,7 +80,7 @@
      <div class="centered_text">
        <h1>
          <b>Share Room</b><br>
-         <font size="4" id="session_url">https://cs56-f18-watch-with-friends.herokuapp.com/room?room={wm}</font><br>
+         <font size="4" id="session_url">https://cs56-f18-watch-with-friends.herokuapp.com/room?room=${id}</font><br>
        </h1>
        <input type="submit" onclick="copy()" value="Copy" class="button1">     
        <input type="submit" onclick="linkOff()" value="Close" class="button1 button2">
@@ -108,21 +108,24 @@
 
    <#include "navbar.ftl" />
    <div text-align: center>
-   <iframe id="vidFrame" src="https://i.ibb.co/KW5TFrj/Unavalible.png" class="center"> 
-   <p>No Video Avalible</p>
+	   <iframe id="vidFrame" src=${videoURL} class="center"> 
+   <p>${videoURL}</p>
    </iframe>
    </div>
    <input type="button" onclick="getLink()" value="get link" class="button">
    <input type="button" onclick="addVid()" value="add video" class="button">
    <!--<input type="button" onclick"" value="get link" class=button>-->
    
-   <font color="white" size="6" id="current_vid"><B>Currently Playing:</b> {wm}</font>
-
- </body>
+   <font name="roomName" color="white" size="6" id="current_vid"><B>Currently Room:</b> ${roomName}</font>
+   <p hidden id="roomID">${id}</p>
+</body>
 
  <script>
    function onLoad(){
-     document.getElementById("current_vid").innerHTML = "<b>Currently Playing:</b> none";
+     var url = document.getElementById("videoFrame").src;
+     if(url == "none") {
+       document.getElementById("videoFrame").src = "https://i.ibb.co/KW5TFrj/Unavalible.png"
+     }
    }
 
    function getLink(){
@@ -150,6 +153,12 @@
 	     document.getElementById("vidFrame").src = mod2;
 	     document.getElementById("playlistOverlay").style.display = "none";
 	     document.getElementById("current_vid").innerHTML = mod2;
+
+         var hash = document.getElementById("roomID").innerHTML;
+	 var mod3 = mod2.replace("https://www.youtube.com/embed/","");
+	     
+        var myWindow =  window.open("https://cs56-f18-watch-with-friends.herokuapp.com/vid/"+hash+"/"+mod3);
+	myWindow.close();	
      }
    }
 
