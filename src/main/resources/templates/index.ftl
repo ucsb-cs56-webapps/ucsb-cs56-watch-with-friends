@@ -124,8 +124,7 @@
    <#include "navbar.ftl" />
    <h1><b>Welcome to watch with FRIENDS!@#</b></h1>
    <img src="https://www.synaptop.com/wp-content/uploads/2015/01/watch_movie_with_friend_16_6.jpg" alt="random ass image" CSS style="width:95%">
-   <p><small><sup>this image is copyrighted</sup></small></p>
-   <p>this is an app desgined to watch videos and songs simultaneously with your friends</p>
+   <p><small><sup>we do not own any rights to this image, please don't sue us</sup></small></p>
    <p id="message"><big><b>To get started click one of the buttons below</b></big></p>
    <p><div class="center" style="width:100%">
      <button type="button" class="button" onclick="joinClick()"> Join Room </button>
@@ -159,13 +158,19 @@
       hashStr = hash.toString(5);
       return hashStr.substring(0,6);
     }
-    function createRoom() {
+    async function createRoom() {
       var rName = document.getElementById("create_textfield").value;
       var link = getHash(document.getElementById("create_textfield").value);
       var newlink ="https://cs56-f18-watch-with-friends.herokuapp.com/room/"+link;
       var myWindow = window.open("https://cs56-f18-watch-with-friends.herokuapp.com/create/"+ rName + "/" +link);
+      
+      document.getElementById("createOverlay").style.display = "none";
+      await sleep(200);
       myWindow.close(); 
       location.href=newlink;
+    }
+    function sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
     }
   </script>
  </body>

@@ -80,9 +80,9 @@
      <div class="centered_text">
        <h1>
          <b>Share Room</b><br>
-         <font size="4" id="session_url">https://cs56-f18-watch-with-friends.herokuapp.com/room?room=${id}</font><br>
+         <font size="4" id="session_url">https://cs56-f18-watch-with-friends.herokuapp.com/room/${id}</font><br>
        </h1>
-       <input type="submit" onclick="copy()" value="Copy" class="button1">     
+       <input type="submit" onclick="copyText()" value="Copy" class="button1">     
        <input type="submit" onclick="linkOff()" value="Close" class="button1 button2">
      </div>
      </div>
@@ -145,24 +145,26 @@
      document.getElementById("playlistOverlay").style.display = "none";
    }
 
-   function submitVid(){
+   async function submitVid(){
      var str = document.getElementById("add_field").value;
      if(str != ""){
 	     var mod1 = str.replace("watch?v=","embed/");
 	     var mod2 = mod1 + "?autoplay=1";
 	     document.getElementById("vidFrame").src = mod2;
 	     document.getElementById("playlistOverlay").style.display = "none";
-	     document.getElementById("current_vid").innerHTML = mod2;
-
-         var hash = document.getElementById("roomID").innerHTML;
-	 var mod3 = mod2.replace("https://www.youtube.com/embed/","");
-	     
+	     var mod3 = mod2.replace("https://www.youtube.com/embed/","");
+	    var hash = document.getElementById("roomID").innerHTML;
         var myWindow =  window.open("https://cs56-f18-watch-with-friends.herokuapp.com/vid/"+hash+"/"+mod3);
-	myWindow.close();	
+	    await sleep(200);
+        myWindow.close();	
      }
    }
 
-   function copy() {   
+   function sleep(ms) {   
+       return new Promise(resolve => setTimeout(resolve, ms)); 
+   }
+
+   function copyText() {   
      var copyText = document.getElementById("session_url").innerHTMLw;   
      copyText.select();   
      document.execCommand("copy");

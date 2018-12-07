@@ -159,13 +159,19 @@
       hashStr = hash.toString(5);
       return hashStr.substring(0,6);
     }
-    function createRoom() {
+    async function createRoom() {
       var rName = document.getElementById("create_textfield").value;
       var link = getHash(document.getElementById("create_textfield").value);
       var newlink ="https://cs56-f18-watch-with-friends.herokuapp.com/room/"+link;
       var myWindow = window.open("https://cs56-f18-watch-with-friends.herokuapp.com/create/"+ rName + "/" +link);
+      
+      document.getElementById("createOverlay").style.display = "none";
+      await sleep(200);
       myWindow.close(); 
       location.href=newlink;
+    }
+    function sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
     }
   </script>
  </body>
